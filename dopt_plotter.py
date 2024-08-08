@@ -308,6 +308,16 @@ def main():
     plt.legend()
     plt.grid()
     plt.savefig(datafolder + "/rmse.pdf", format="pdf")
+    plt.show(block=False)
+
+    # plot rmse boxplot
+    fig = plt.figure()
+    rmse_mean = np.array([np.mean(rmses) for rmses in rmse_data.values()])
+    tick_labels = ["5"]
+    plt.boxplot(rmse_mean, tick_labels=tick_labels)
+    plt.ylabel("RMSE")
+    plt.grid()
+    plt.savefig(datafolder + "/rmse_boxplot.pdf", format="pdf")
     plt.show(block=True)
 
 
